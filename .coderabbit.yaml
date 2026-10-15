@@ -2,12 +2,20 @@
 reviews:
   profile: chill
   review_details: true
-  request_changes_workflow: false
+  request_changes_workflow: true
   high_level_summary_in_walkthrough: true
   pre_merge_checks:
+    docstrings:
+      mode: "off"
+    title:
+      mode: "off"
+    description:
+      mode: "off"
+    issue_assessment:
+      mode: "off"
     custom_checks:
       - name: Payment idempotency
-        mode: warning
+        mode: error
         instructions: |
           For changes to payment creation, fail if the same account and idempotency key
           can create multiple payment records. Check code paths for reuse and uniqueness
