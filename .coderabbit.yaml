@@ -1,0 +1,22 @@
+# Configuration instance: lab/p3-api-a2-configured
+reviews:
+  profile: chill
+  review_details: true
+  request_changes_workflow: false
+  high_level_summary_in_walkthrough: true
+  pre_merge_checks:
+    custom_checks:
+      - name: Payment idempotency
+        mode: warning
+        instructions: |
+          For changes to payment creation, fail if the same account and idempotency key
+          can create multiple payment records. Check code paths for reuse and uniqueness
+          enforcement. Cite supporting code. If the relevant storage or concurrency path
+          cannot be inspected, report Inconclusive rather than asserting it is safe.
+  auto_review:
+    enabled: true
+    drafts: false
+knowledge_base:
+  automatic_linking_mode: disabled
+  linked_repositories:
+    - repository: atharva038/coderabbit-lab-client
